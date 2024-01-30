@@ -1,0 +1,17 @@
+Flag --validation has been deprecated, this arg is no longer used, all resources are validated using server-side apply dry-run
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux-ngnix-sot
+  namespace: flux-system
+spec:
+  interval: 30s
+  path: ./deoloy
+  prune: true
+  retryInterval: 2m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-ngnix-sot
+  timeout: 3m0s
+  wait: true
